@@ -1,3 +1,10 @@
+const express = require('express');
+const app = express();
+const mongo = require('mongodb');
+const mongoose = require('mongoose');
+
+const { PORT, DATABASE_URL } = require('./config');
+
 let server;
 
 // this function connects to our database, if there is one to be created, then starts the server
