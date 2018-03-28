@@ -2,10 +2,10 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const router = express.Router();
-const jsonParser = bodyParser.json();
 
 const { Location } = require('./models');
+const router = express.Router();
+const jsonParser = bodyParser.json();
 
 router.post('/', (req, res) => {
   console.log(req.body);
@@ -34,3 +34,5 @@ router.post('/', (req, res) => {
     }
   });
 });
+
+module.exports = { router };

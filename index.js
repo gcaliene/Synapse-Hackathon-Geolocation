@@ -1,13 +1,18 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-
+const bodyParser = require('body-parser');
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 
 const { PORT, DATABASE_URL } = require('./config');
 
-const { router: locationRouter } = require('./budget');
+const { router: locationRouter } = require('./locations');
+
+app.use(morgan('common'));
+app.use(bodyParser.json());
+
+app.use('/api', locationRouter);
 
 let server;
 
