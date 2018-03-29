@@ -36,4 +36,15 @@ router.post('/', (req, res) => {
   });
 });
 
+router.get('/', (req, res) => {
+  Location.find().then(
+    mealSitePartner => {
+      res.send({ mealSitePartner });
+    },
+    e => {
+      res.status(400).send(e.errors.text.message);
+    }
+  );
+});
+
 module.exports = { router };
