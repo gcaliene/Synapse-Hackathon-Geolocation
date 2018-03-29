@@ -12,7 +12,9 @@ app.use(express.static('public'));
 const { router: locationRouter } = require('./locations');
 
 app.use(morgan('common'));
-app.use(bodyParser.json());
+// Setting up basic middleware for all Express requests
+app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
+app.use(bodyParser.json()); // Send JSON responses
 
 app.use('/api', locationRouter);
 

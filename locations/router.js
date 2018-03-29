@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const { Location } = require('./models');
 const router = express.Router();
+
 const jsonParser = bodyParser.json();
 
 router.post('/', (req, res) => {

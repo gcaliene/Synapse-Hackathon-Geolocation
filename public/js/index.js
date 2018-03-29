@@ -8,6 +8,7 @@ window.onload = function() {
 
   $('#submit').on('click', function(event) {
     event.preventDefault();
+    console.log(typeof $name.val());
     const data = {
       name: $name.val(),
       address: $address.val(),
@@ -16,6 +17,7 @@ window.onload = function() {
       days: $days.val(),
       other: $other.val()
     };
+    console.log({ data });
     $.ajax({
       type: 'POST',
       url: '/api',
